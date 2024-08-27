@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Representative Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Manage Sales Representatives</h1>
+
+        <!-- Form لإضافة مندوب مبيعات جديد -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Add New Representative</div>
+            <div class="card-body">
+                <form id="addRepForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repCode" class="form-label">Representative Code</label>
+                            <input type="text" class="form-control" id="repCode" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="repName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="repName" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repPhone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="repPhone" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="repCity" class="form-label">Branch/City</label>
+                            <input type="text" class="form-control" id="repCity" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repSalary" class="form-label">Salary</label>
+                            <input type="number" class="form-control" id="repSalary" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="repTarget" class="form-label">Monthly Target</label>
+                            <input type="number" class="form-control" id="repTarget" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repActualSales" class="form-label">Actual Sales Achieved</label>
+                            <input type="number" class="form-control" id="repActualSales" required>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Add Representative</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- قائمة مندوبين المبيعات -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Representatives List</div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Salary</th>
+                            <th>Target</th>
+                            <th>Actual Sales</th>
+                            <th>Difference</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repsList">
+                        <!-- سيتم تعبئة المندوبين هنا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- إدارة الحضور -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Attendance Management</div>
+            <div class="card-body">
+                <form id="attendanceForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repNameAttendance" class="form-label">Representative Name</label>
+                            <input type="text" class="form-control" id="repNameAttendance" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="attendanceDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="attendanceDate" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="attendanceStatus" class="form-label">Status</label>
+                            <select class="form-control" id="attendanceStatus" required>
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Record Attendance</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- قائمة الحضور -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Attendance List</div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceList">
+                        <!-- سيتم تعبئة الحضور هنا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- إدارة العمولات -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Commission Management</div>
+            <div class="card-body">
+                <form id="commissionForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="repNameCommission" class="form-label">Representative Name</label>
+                            <input type="text" class="form-control" id="repNameCommission" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="salesAmount" class="form-label">Sales Amount</label>
+                            <input type="number" class="form-control" id="salesAmount" required>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Calculate Commission</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- قائمة العمولات -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">Commissions List</div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Sales Amount</th>
+                            <th>Commission</th>
+                        </tr>
+                    </thead>
+                    <tbody id="commissionList">
+                        <!-- سيتم تعبئة العمولات هنا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
